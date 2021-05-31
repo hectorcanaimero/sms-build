@@ -1,0 +1,13 @@
+ion-item {
+  --padding-start: 0px;
+  --inner-padding-end: 0px;
+  ion-textarea {
+    --background: #e6e6e6;
+    border: 2px solid #efefef;
+    border-radius: 10px;
+    --padding-start: 8px;
+    --padding-end: 8px;
+    min-height: 150px;
+  }
+
+}

@@ -1,0 +1,7 @@
+{
+  "name": "sms-build",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

@@ -1,0 +1,60 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-title color="primary">Crear Mensaje</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="onClose()">
+        <ion-icon slot="icon-only" name="close-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-12">
+        <form [formGroup]="message">
+          <ion-item>
+            <ion-label>Categoria</ion-label>
+            <ion-select placeholder="Seleccione..." formControlName="category">
+              <ion-select-option *ngFor="let item of categories$ | async" [value]="item.id">
+                {{ item.name }}</ion-select-option>
+            </ion-select>
+          </ion-item>
+          <ion-item lines="none">
+            <ion-label position="stacked">Description</ion-label>
+            <ion-textarea [autoGrow]="true" formControlName="texto" [maxlength]="160"
+              [(ngModel)]="count" (ionChange)="countValue($event)"></ion-textarea>
+          </ion-item>
+          <ion-label class="mt-1 mr-1 mb-4">
+            <p class="text-right"> {{ value }}/160 </p>
+          </ion-label>
+          <ion-item>
+            <ion-label>Device</ion-label>
+            <ion-select placeholder="Seleccione..." formControlName="category">
+              <ion-select-option *ngFor="let item of categories$ | async" [value]="item.id">
+                {{ item.name }}</ion-select-option>
+            </ion-select>
+          </ion-item>
+          <ion-label>
+            <h2>Agendar</h2>
+          </ion-label>
+          <ion-item>
+            <ion-label position="stacked">Fecha</ion-label>
+            <ion-datetime displayFormat="DD/MM/YYYY" formControlName="dia"></ion-datetime>
+          </ion-item>
+          <ion-item>
+            <ion-label position="stacked">Hora</ion-label>
+            <ion-datetime displayFormat="HH:mm" formControlName="hora"></ion-datetime>
+          </ion-item>
+        </form>
+      </div>
+    </div>
+  </div>
+</ion-content>
+<ion-footer>
+  <ion-toolbar color="tertiary">
+    <ion-button (click)="onSubmit()" expand="block" fill="clear" color="light">
+      Enviar
+    </ion-button>
+  </ion-toolbar>
+</ion-footer>

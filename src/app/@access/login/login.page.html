@@ -1,0 +1,29 @@
+<ion-content [fullscreen]="true" color="medium">
+  <div class="flex-center">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-11 col-md-7 col-lg-4">
+          <div class="image text-center mb-4">
+            <img src="./assets/images/logo.png" class="img-fluid" alt="SMS Builder">
+
+          </div>
+          <div class="box">
+            <form [formGroup]="login">
+              <ion-item>
+                <ion-label position="stacked">E-Mail <ion-text color="danger">*</ion-text></ion-label>
+                <ion-input required formControlName="email" type="email"></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-label position="stacked">Password <ion-text color="danger">*</ion-text></ion-label>
+                <ion-input required formControlName="password" type="password"></ion-input>
+              </ion-item>
+              <ion-button class="mt-4" (click)="onSubmit()" [disabled]="login.invalid" expand="block" shape="round">
+                Entrar!
+              </ion-button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>

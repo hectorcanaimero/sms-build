@@ -1,0 +1,49 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-title>contact</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-segment mode="ios" value="todos" (ionChange)="segmentChanged($event)">
+    <ion-segment-button value="todos">
+      <ion-label>Todos</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="import">
+      <ion-label>Importar</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+  <div class="content" *ngIf="segment === 'todos'; else Importar">
+    <ion-list>
+      <ion-list-header>
+        <ion-label>
+          <h2>Contactos</h2>
+        </ion-label>
+      </ion-list-header>
+      <ion-item *ngFor="let item of [1,2,3,4,5,6,7,8]">
+        <ion-label>
+          <h2>Maria Paerez</h2>
+          <p>Telef. 4123554554</p>
+        </ion-label>
+        <ion-button slot="end" fill="clear" color="danger">
+          <ion-icon slot="icon-only" name="trash"></ion-icon>
+        </ion-button>
+      </ion-item>
+    </ion-list>
+  </div>
+  <ng-template #Importar>
+    <div class="content container">
+      <ion-button expand="full">
+        <ion-icon lazy="true" slot="start" name="image"></ion-icon>
+        <ion-label slot="end">Upload Image</ion-label>
+        <input type="file" (change)="loadImageFromDevice($event)" id="file-input"
+          accept="text/csv">
+      </ion-button>
+    </div>
+  </ng-template>
+</ion-content>
+<ion-fab vertical="bottom" horizontal="end" slot="fixed">
+  <ion-fab-button (click)="onAdd()">
+    <ion-icon name="add"></ion-icon>
+  </ion-fab-button>
+</ion-fab>

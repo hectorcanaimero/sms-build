@@ -1,0 +1,32 @@
+<app-header titulo="Categoria"></app-header>
+<ion-content>
+    <ion-list>
+    <ion-list-header>
+      <ion-label>New This Week</ion-label>
+      <ion-button>See All</ion-button>
+    </ion-list-header>
+    <ion-item-sliding *ngFor="let item of list$ | async">
+      <ion-item>
+        <ion-label>
+          <h2>{{ item.name }}</h2>
+          <p>Contactos: 45</p>
+        </ion-label>
+      </ion-item>
+      <ion-item-options side="start">
+        <ion-item-option color="danger">
+          <ion-icon slot="icon-only" name="trash"></ion-icon>
+        </ion-item-option>
+      </ion-item-options>
+      <ion-item-options side="end">
+        <ion-item-option (click)="onContact(item.id)">
+          <ion-icon slot="icon-only" name="eye"></ion-icon>
+        </ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+</ion-content>
+<ion-fab vertical="bottom" horizontal="end" slot="fixed">
+  <ion-fab-button (click)="onCreateCategory()">
+    <ion-icon name="add"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
